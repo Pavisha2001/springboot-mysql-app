@@ -37,5 +37,5 @@ jobs:
         run: docker build -t ghcr.io/${{ github.repository }}/springboot-mysql-app:latest .
 
       # Step 6: Push Docker image to GitHub Container Registry (GHCR)
-      - name: Push Docker image to GitHub Container Registry
+      - name: Push Docker image to GitHub Container Registry.
         run: docker push ghcr.io/${{ github.repository }}/springboot-mysql-app:latest
