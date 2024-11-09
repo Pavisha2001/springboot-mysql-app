@@ -5,7 +5,8 @@ on:
   pull_request:
     branches:
       - main
-
+permissions:
+   packages: write
 jobs:
   build:
     runs-on: ubuntu-latest  # The operating system to use for the job
@@ -35,7 +36,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}  # GitHub username of the actor who triggered the workflow
           password: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
-
+        
       # Step 5: Build the Docker image (Tag with ghcr.io repository format)
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ env.REPOSITORY }}/springboot-mysql-app:latest .
