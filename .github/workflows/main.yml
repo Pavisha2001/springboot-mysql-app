@@ -19,7 +19,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'microsoft'
-
+          
+      - name: Make mvnw executable
+        run: chmod +x ./mvnw
+        
       - name: Build with Maven
         run: ./mvnw clean package
 
