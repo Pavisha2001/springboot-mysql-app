@@ -34,7 +34,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}  # GitHub username of the actor who triggered the workflow
-          password: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+          password: ${{ secrets.PAT }}  # GitHub token for authentication
 
       # Step 5: Build the Docker image (Tag with ghcr.io repository format)
       - name: Build Docker image
