@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # The operating system to use for the job
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checks out your repository’s code
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: ./mvnw clean package
+
+      - name: Run unit tests
+        run: ./mvnw test
+
+      - name: Build Docker image
+        run: docker build -t springboot-mysql-app .
